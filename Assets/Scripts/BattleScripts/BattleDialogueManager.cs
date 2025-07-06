@@ -28,11 +28,11 @@ public class BattleDialogueManager : MonoBehaviour
 
         //battleHandler = FindFirstObjectByType<BattleHandler>();
         listOfSkillTxts = new TMP_Text[] {skill1Text, skill2Text, skill3Text} ;
-        ally1Text.text = battleHandler.GetAllyActualHP(0);
+        ally2Text.text = battleHandler.GetAllyActualHP(0);
         if (battleHandler.GetNumAllies() >1){
-            ally2Text.text = battleHandler.GetAllyActualHP(1);
+            ally1Text.text = battleHandler.GetAllyActualHP(1);
         }else{
-             ally2Text.text = "";
+             ally1Text.text = "";
               }
 
         //FIXME: alterar que está muito feio
@@ -66,7 +66,7 @@ public class BattleDialogueManager : MonoBehaviour
         attackText.text = "Space:\nAttack";
 
         for(int i = 0  ; i < numOfSkills; i++ ){
-            listOfSkillTxts[i].text = hotKeysSkills[i] +":\n"+ cb.sheet.GetSkillName(i);
+            listOfSkillTxts[i].text = hotKeysSkills[i] +": " + cb.sheet.GetManaCost(i) + " Mana\n"+ cb.sheet.GetSkillName(i);
         }
         //Debug.Log("Skills Set");   
     }

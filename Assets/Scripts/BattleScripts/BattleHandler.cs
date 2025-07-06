@@ -62,7 +62,7 @@ public class BattleHandler : MonoBehaviour
     void Start()
     {
         battleDManager.ClearSkills();
-        StartBattleLogic();   
+        StartBattleLogic();
         targetIndex = numAllies;
         lenListFight = listOfFighters.Length;
         battleDManager.StartBattle(this);
@@ -80,22 +80,29 @@ public class BattleHandler : MonoBehaviour
         //characterBattle.Attack(characterBattle);
 
         hudXScale1 = hudActionGauge1.localScale.x;
-        if(numAllies >1){
+        if (numAllies > 1)
+        {
 
-        hudXScale2 = hudActionGauge2.localScale.x;}
-        else{
+            hudXScale2 = hudActionGauge2.localScale.x;
+        }
+        else
+        {
             hudActionGauge2.gameObject.SetActive(false);
-             hudActionGauge2.parent.gameObject.SetActive(false);
+            hudActionGauge2.parent.gameObject.SetActive(false);
         }
 
         foreach (CharacterBattle cb in listOfFighters)
         {
-        cb.OnHPChanged += CharacterBattle_OnHPChanged;
-        /*
-        playerCharacterBattle2.OnHPChanged += CharacterBattle_OnHPChanged;
-        enemyCharacterBattle.OnHPChanged += CharacterBattle_OnHPChanged;
-        enemyCharacterBattle2.OnHPChanged += CharacterBattle_OnHPChanged;
-        enemyCharacterBattle3.OnHPChanged += CharacterBattle_OnHPChanged;*/
+            cb.OnHPChanged += CharacterBattle_OnHPChanged;
+            if (cb.sheet.isAlly)
+            {
+                cb.OnManaChanged += CharacterBattle_OnHPChanged;
+            }
+            /*
+            playerCharacterBattle2.OnHPChanged += CharacterBattle_OnHPChanged;
+            enemyCharacterBattle.OnHPChanged += CharacterBattle_OnHPChanged;
+            enemyCharacterBattle2.OnHPChanged += CharacterBattle_OnHPChanged;
+            enemyCharacterBattle3.OnHPChanged += CharacterBattle_OnHPChanged;*/
         }
 
     }
@@ -135,25 +142,18 @@ public class BattleHandler : MonoBehaviour
                 );
             }
 
-            if (Input.GetAxisRaw("Skill 1") == 1) {
-                listOfFighters[targetIndex].HideTarget();
-                state = State.Busy;
-                activeCharacterBattle.Skill(listOfFighters[targetIndex], 2, () =>
-                {
-                    //Debug.Log("Enemy Curr HP" + enemyCharacterBattle.currentHP);
-                    ChooseNextActiveCharacter();
-                    battleDManager.ClearSkills();
-                    targetIndex = numAllies;
-                    if (listOfFighters[targetIndex].isDead())
-                    {
-                        IndexLogicPlus1();
-                    }
-                    //Debug.Log("Player Curr HP" + playerCharacterBattle.currentHP);
-                    //state = State.WaitingForPlayer;
-                }
-                );
+            if (Input.GetAxisRaw("Skill 1") == 1)
+            {
+                SkillLogic(1);
             }
-
+            if (Input.GetAxisRaw("Skill 2") == 1)
+            {
+                SkillLogic(2);
+            }
+            if (Input.GetAxisRaw("Skill 3") == 1)
+            {
+                SkillLogic(3);
+            }
 
         }
         else
@@ -175,7 +175,39 @@ public class BattleHandler : MonoBehaviour
     }
 
 
-    private void StartBattleLogic(){
+
+    private void SkillLogic(int val)
+    {
+        if (activeCharacterBattle.sheet.GetNumSkills() >= val)
+        { // indice da skill é val-1
+            int castCost = activeCharacterBattle.sheet.GetManaCost(val - 1);
+            if (activeCharacterBattle.currentMana - castCost > 0)
+            { //Se a mana que sobra depois da skill for menor do que 0, não é castável
+                listOfFighters[targetIndex].HideTarget();
+                state = State.Busy;
+
+                activeCharacterBattle.Skill(listOfFighters[targetIndex], val + 1, () =>
+                {
+                    activeCharacterBattle.currentMana -= castCost;
+                    activeCharacterBattle.ManaChanged();
+                    //Debug.Log("Enemy Curr HP" + enemyCharacterBattle.currentHP);
+                    ChooseNextActiveCharacter();
+                    battleDManager.ClearSkills();
+                    targetIndex = numAllies;
+                    if (listOfFighters[targetIndex].isDead())
+                    {
+                        IndexLogicPlus1();
+                    }
+                    //Debug.Log("Player Curr HP" + playerCharacterBattle.currentHP);
+                    //state = State.WaitingForPlayer;
+                }
+                );
+            }
+        }
+    }
+
+    private void StartBattleLogic()
+    {
         int numberOfFighters = 0;
         numAllies = 1;
         //int numEnemies = 0;
@@ -183,24 +215,27 @@ public class BattleHandler : MonoBehaviour
         // TODO: Logica ainda não implementada, apenas atribui a lista
         //TODO: Mudar isso daqui Depois para não ficar estatico e poder incorporar numeros de inimgos diferentes
         // De preferencia por alguma função matemática
-        
+
         //listOfAllies[numAllies];
         //numAllies += 1;
-        if (pfCharacterBattleAlly2 != null){// se tiver o segundo cria lista com 2
+        if (pfCharacterBattleAlly2 != null)
+        {// se tiver o segundo cria lista com 2
             numAllies += 1;
             listOfAllies = new CharacterBattle[numAllies];
-            listOfAllies[1] = SpawnCharacter(true, pfCharacterBattleAlly2, 0);
+            listOfAllies[1] = SpawnCharacter(true, pfCharacterBattleAlly2, 3, ally2Name);
         }//TODO: Para projetos futuros, fazer uma lista de prefabs de aliados talvez ajudasse 
-        else{ // se não tiver cria com 1
+        else
+        { // se não tiver cria com 1
             listOfAllies = new CharacterBattle[numAllies];
         }
-        listOfAllies[0] = SpawnCharacter(true, pfCharacterBattleAlly, 3);
+        listOfAllies[0] = SpawnCharacter(true, pfCharacterBattleAlly, 0, ally1Name);
 
         numEnemies = 1;
-        if (!isBoss){
+        if (!isBoss)
+        {
             numEnemies = random.Next(1, 4);
         }
-        
+
         listOfEnemies = new CharacterBattle[numEnemies];
         /*
         listOfEnemies[0] = enemyCharacterBattle;
@@ -208,13 +243,14 @@ public class BattleHandler : MonoBehaviour
         listOfEnemies[2] = enemyCharacterBattle3;
         */
 
-        for( int i = 0; i< numEnemies ; i++){
+        for (int i = 0; i < numEnemies; i++)
+        {
             //TODO: Daria para expandir aqui para mais inimigos com mais prefabs de inimigos e fazendo uma lista igual
-            listOfEnemies[i] = SpawnCharacter(false,pfCharacterBattleEnemy, i*2);
-/*        enemyCharacterBattle = SpawnCharacter(false, 0);
-        enemyCharacterBattle2 = SpawnCharacter(false, 2);
-        enemyCharacterBattle3 = SpawnCharacter(false, 4);
-*/
+            listOfEnemies[i] = SpawnCharacter(false, pfCharacterBattleEnemy, i * 2, enemy1Name);
+            /*        enemyCharacterBattle = SpawnCharacter(false, 0);
+                    enemyCharacterBattle2 = SpawnCharacter(false, 2);
+                    enemyCharacterBattle3 = SpawnCharacter(false, 4);
+            */
         }
         numberOfFighters = numAllies + numEnemies;
         listOfFighters = new CharacterBattle[numberOfFighters];
@@ -223,14 +259,16 @@ public class BattleHandler : MonoBehaviour
         //array.Length;
 
         //adicionar aliados
-        for (int i = 0; i< numAllies; i++){
+        for (int i = 0; i < numAllies; i++)
+        {
             listOfFighters[i] = listOfAllies[i];
         }
-       // Debug.Log(numEnemies);
+        // Debug.Log(numEnemies);
         //adicionar inimigos
-        for( int i = numAllies; i<(numAllies+numEnemies) ; i++){
-            
-            listOfFighters[i] = listOfEnemies[i-numAllies];
+        for (int i = numAllies; i < (numAllies + numEnemies); i++)
+        {
+
+            listOfFighters[i] = listOfEnemies[i - numAllies];
         }
 
     }
@@ -273,7 +311,8 @@ public class BattleHandler : MonoBehaviour
 
     }
 
-    private void SkillSetter(CharacterBattle cb){
+    private void SkillSetter(CharacterBattle cb)
+    {
         battleDManager.SetSkills(cb);
     }
 
@@ -317,19 +356,18 @@ public class BattleHandler : MonoBehaviour
 
         //somente para testes definirei estaticamente o valor randomico gerado, mas a base vai ser Next(1,n),
         //com n sendo o número total de skills
-        int auxVal = random.Next(1, 3); //reaproveitando o random já criado
-                                            
+        int auxVal = random.Next(1, activeCharacterBattle.sheet.GetNumSkills() + 2); //reaproveitando o random já criado                  
         if (auxVal == 1)//TODO: Ideia encapsular tudo em uma funcao só, para não precisar do if
         {
-            int auxVal2 = random.Next(0, numAllies); 
+            int auxVal2 = random.Next(0, numAllies);
             if (listOfAllies[auxVal2].isDead())
             {
-                if (auxVal2 == 1)
+                if (auxVal2 == 1)//se aliado 2 está morto vai no 1
                 {
-                    auxVal2 = numAllies;
+                    auxVal2 = 0;
                 }
                 else
-                {
+                { // se aliado 1 está morto vai no 2
                     auxVal2 = numAllies - 1;
                 }
             }
@@ -340,15 +378,15 @@ public class BattleHandler : MonoBehaviour
         }
         else
         {
-            int auxVal2 = random.Next(0, numAllies); 
+            int auxVal2 = random.Next(0, numAllies);
             if (listOfFighters[auxVal2].isDead())
             {
-               if (auxVal2 == 1)
+                if (auxVal2 == 1)//se aliado 2 está morto vai no 1
                 {
-                    auxVal2 = numAllies;
+                    auxVal2 = 0;
                 }
                 else
-                {
+                {// se aliado 1 está morto vai no 2
                     auxVal2 = numAllies - 1;
                 }
             }
@@ -366,9 +404,10 @@ public class BattleHandler : MonoBehaviour
     private void UpdateGauge()
     {
         hudActionGauge1.localScale = new Vector3(hudXScale1 * (((float)listOfAllies[0].actionGauge) / gaugeFactor), hudActionGauge1.localScale.y, 0);
-        
-        
-        if(numAllies>1) {
+
+
+        if (numAllies > 1)
+        {
             hudActionGauge2.localScale = new Vector3(hudXScale2 * (((float)listOfAllies[1].actionGauge) / gaugeFactor), hudActionGauge2.localScale.y, 0);
         }
     }
@@ -440,12 +479,17 @@ public class BattleHandler : MonoBehaviour
 
     private bool TestBattleOver()
     {
-        foreach (CharacterBattle pb in listOfAllies){
-            if(pb.isDead()) {
+        foreach (CharacterBattle pb in listOfAllies)
+        {
+            if (pb.isDead())
+            {
                 areAlliesDead = true;
-            }else{
-                areAlliesDead = false; 
-                break;}
+            }
+            else
+            {
+                areAlliesDead = false;
+                break;
+            }
 
         }
 
@@ -456,12 +500,16 @@ public class BattleHandler : MonoBehaviour
             return true;
         }
 
-        foreach (CharacterBattle eb in listOfEnemies){
-            if(eb.isDead()) {
+        foreach (CharacterBattle eb in listOfEnemies)
+        {
+            if (eb.isDead())
+            {
                 areEnemiesDead = true;
-            }else{
-            areEnemiesDead = false;
-            break;
+            }
+            else
+            {
+                areEnemiesDead = false;
+                break;
             }
         }
         if (areEnemiesDead)
@@ -490,7 +538,7 @@ public class BattleHandler : MonoBehaviour
 
 
 
-    private CharacterBattle SpawnCharacter(bool isPlayerTeam, Transform pf,int posicao)
+    private CharacterBattle SpawnCharacter(bool isPlayerTeam, Transform pf, int posicao, string text)
     {
         Vector3 position;
         if (isPlayerTeam)
@@ -505,7 +553,7 @@ public class BattleHandler : MonoBehaviour
             characterBattle.sheet.initStats();
             characterBattle.sheet.isAlly = true;
             */
-            characterBattle.Setup(ally1Name, isPlayerTeam);
+            characterBattle.Setup(text, isPlayerTeam);
 
 
             return characterBattle;
@@ -515,7 +563,7 @@ public class BattleHandler : MonoBehaviour
             position = new Vector3(6, posicao);
             Transform characterTransform = Instantiate(pf, position, Quaternion.identity);
             CharacterBattle characterBattle = characterTransform.GetComponent<CharacterBattle>();
-            characterBattle.Setup(enemy1Name, isPlayerTeam);
+            characterBattle.Setup(text, isPlayerTeam);
 
             //Debug.Log("Enemy " + characterBattle.sheet.str);
             return characterBattle;
@@ -529,13 +577,24 @@ public class BattleHandler : MonoBehaviour
     {
         foreach (CharacterBattle cb in listOfFighters)
         { //Para não deixar cura passar do máximo e nem morte ficar menor que 0
-            if (cb.currentHP < 0 )
+            if (cb.currentHP < 0)
             {
                 cb.currentHP = 0;
             }
-            if (cb.currentHP > cb.sheet.hp){
+            if (cb.currentHP > cb.sheet.hp)
+            {
                 cb.currentHP = cb.sheet.hp;
             }
+
+            if (cb.currentMana < 0)
+            {
+                cb.currentMana = 0;
+            }
+            if (cb.currentMana > cb.sheet.mana)
+            {
+                cb.currentMana = cb.sheet.mana;
+            }
+
 
         }
 
@@ -552,30 +611,34 @@ public class BattleHandler : MonoBehaviour
 
     public string GetAllyActualHP(int allyNumber)
     {
-        return (ally1Name + " HP: " + listOfAllies[allyNumber].currentHP + "/" + listOfAllies[allyNumber].sheet.hp);
+        return (listOfAllies[allyNumber].sheet.name + " HP: " + listOfAllies[allyNumber].currentHP + "/" + listOfAllies[allyNumber].sheet.hp +
+        "\n Mana: " + listOfAllies[allyNumber].currentMana + "/" + listOfAllies[allyNumber].sheet.mana
+        );
         //return (ally1Name + " AG: " + playerCharacterBattle.actionGauge + "/" + 100);
     }
 
-/*
-    public string GetAlly2ActualHP()
-        {
-            return (ally2Name + " HP: " + playerCharacterBattle2.currentHP + "/" + playerCharacterBattle2.sheet.hp);
-            //return (enemy1Name + " AG: " + enemyCharacterBattle.actionGauge + "/" + 100);
-        }
-*/
+    /*
+        public string GetAlly2ActualHP()
+            {
+                return (ally2Name + " HP: " + playerCharacterBattle2.currentHP + "/" + playerCharacterBattle2.sheet.hp);
+                //return (enemy1Name + " AG: " + enemyCharacterBattle.actionGauge + "/" + 100);
+            }
+    */
     public string GetEnemiesActualHP()
     {
-        return (enemy1Name + " HP: " + listOfEnemies[0].currentHP + "/" + listOfEnemies[0].sheet.hp);
+        return (listOfEnemies[0].name + " HP: " + listOfEnemies[0].currentHP + "/" + listOfEnemies[0].sheet.hp);
         //return (enemy1Name + " AG: " + enemyCharacterBattle.actionGauge + "/" + 100);
     }
 
 
 
-    public int GetNumAllies(){
+    public int GetNumAllies()
+    {
         return numAllies;
     }
 
-     public int GetNumEnemies(){
+    public int GetNumEnemies()
+    {
         return numEnemies;
     }
 }

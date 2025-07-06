@@ -1,11 +1,13 @@
 using UnityEngine;
 using System;
 using Random = System.Random;
+//TODO: Talvez no futuro seja uma boa ideia unificar o Heal Object e o Cast Object para as animações
 public class CharacterBattle : MonoBehaviour
 {
 
   public CharacterSheet sheet;
   public int currentHP;
+  public int currentMana;
   public int actionGauge;
   public bool isVulnerable;
 
@@ -20,14 +22,15 @@ public class CharacterBattle : MonoBehaviour
   private Action onSlideComplete;
   private Action onSkillComplete;
   private Action onAnimationComplete;
-  
+
 
   private Animator animator;
-  private Animator healAnimator;
-  public Transform healTransform;
-  private GameObject healObject;
+  private Animator castAnimator;
+  public Transform castTransform;
+  private GameObject castObject;
 
   public event EventHandler OnHPChanged;
+  public event EventHandler OnManaChanged;
 
 
   //Auxiliares
@@ -52,7 +55,7 @@ public class CharacterBattle : MonoBehaviour
     Sliding,
     Busy,
     Animating,
-    AnimatingHeal,
+    AnimatingCasting,
   }
 
 
@@ -62,12 +65,13 @@ public class CharacterBattle : MonoBehaviour
     random = new Random();
     state = State.Idle;
     animator = GetComponent<Animator>();
-    if(healTransform != null){
+    if (castTransform != null)
+    {
       //Debug.Log("FUCK");
-      Transform transformH = Instantiate(healTransform, GetPosition(), Quaternion.identity);
-      healObject = transformH.gameObject;
-      healObject.SetActive(false);
-      healAnimator = healObject.GetComponent<Animator>();            
+      Transform transformH = Instantiate(castTransform, GetPosition(), Quaternion.identity);
+      castObject = transformH.gameObject;
+      castObject.SetActive(false);
+      castAnimator = castObject.GetComponent<Animator>();
     }
     actionGauge = 0;
   }
@@ -94,9 +98,9 @@ public class CharacterBattle : MonoBehaviour
         }
         break;
       case State.Animating:
-        NTime =  animator.GetCurrentAnimatorStateInfo(0).normalizedTime; //Pega o tempo normalizado da animacao
-                                         //Que resumidamente é um loop dos frames da animacao
-        
+        NTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime; //Pega o tempo normalizado da animacao
+                                                                        //Que resumidamente é um loop dos frames da animacao
+
         if (NTime > 1.0f)
         {
           animator.SetInteger("SkillNumber", 0);
@@ -104,12 +108,12 @@ public class CharacterBattle : MonoBehaviour
         }
 
         break;
-      case State.AnimatingHeal:
-          NTime =  healAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime; //Pega o tempo normalizado da animacao
-                                         //Que resumidamente é um loop dos frames da animacao
+      case State.AnimatingCasting:
+        NTime = castAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime; //Pega o tempo normalizado da animacao
+                                                                            //Que resumidamente é um loop dos frames da animacao
         if (NTime > 1.5f)
         {
-          healObject.SetActive(false);
+          castObject.SetActive(false);
           onAnimationComplete();
         }
         break;
@@ -149,6 +153,7 @@ public class CharacterBattle : MonoBehaviour
     sheet.InitStats();
     sheet.isAlly = isAlly;
     currentHP = sheet.hp;
+    currentMana = sheet.mana;
     highlightGameObject = transform.Find("Highlight").gameObject;
     targetGameObject = transform.Find("Target").gameObject;
     HideHighlight();
@@ -253,14 +258,23 @@ public class CharacterBattle : MonoBehaviour
     );
   }
 
-  public void Skill(CharacterBattle target, int skillNumber, Action onSkillComplete){ 
-      this.onSkillComplete = onSkillComplete;
+  public void Skill(CharacterBattle target, int skillNumber, Action onSkillComplete)
+  {
+    this.onSkillComplete = onSkillComplete;
+    string type = this.sheet.GetSkillType(skillNumber - 2);
 
-      if(this.sheet.GetSkillDamage(target, skillNumber) >= 0){
-      SkillAttack(target, skillNumber); 
-      }else{
-        SkillHeal(target, skillNumber);
-      }
+    if (type == "Damage")
+    {
+      SkillAttack(target, skillNumber);
+    }
+    if (type == "Heal")
+    {
+      SkillHeal(target, skillNumber);
+    }
+    if (type == "Casting")
+    {
+      SkillCasting(target, skillNumber);
+    }
 
   }
 
@@ -283,7 +297,7 @@ public class CharacterBattle : MonoBehaviour
 
       PlayAnimation(skillNumber, () =>
       {//Segunda func anon
-        target.currentHP -= this.sheet.GetSkillDamage(target, skillNumber);
+        this.sheet.ApplySkillDamage(target, skillNumber);
         if (OnHPChanged != null) OnHPChanged(this, EventArgs.Empty); // Trocar depois
         SlideToPosition(startingPosition - attackDir,//Depois penso em uma forma de não depender do Attack Dir
           () =>
@@ -297,8 +311,8 @@ public class CharacterBattle : MonoBehaviour
     );
   }
 
-public void SkillHeal(CharacterBattle target, int skillNumber)
- { //por default a animação 0 é iddle, 1 é attack. 
+  public void SkillHeal(CharacterBattle target, int skillNumber)
+  { //por default a animação 0 é iddle, 1 é attack. 
     //animator.runtimeAnimatorController.animationClips.Lenght; retorna número de animações não vazias
     this.HideHighlight();
     Vector3 targetPosition = target.GetPosition();
@@ -311,16 +325,18 @@ public void SkillHeal(CharacterBattle target, int skillNumber)
     //FIXME: Não sei por que sem dar o Slide SEM ANDAR NADA, o normalized time não zera
     //Imagino que seja porque sem as trocas de contexto que o Slide to Position tras
     //O Unity não tem tempo de atualizar a informação do normalized time a tempo
+    //FIXME: Talvez seja porque o Heal Time não tem loop diferente dos outros. Checar se der tempo,
+    //mas como assim está funcionando não devo mexer
     SlideToPosition(GetPosition(), () =>
     {//Primeira func anon
       state = State.Busy;
 
       PlayAnimation(skillNumber, () =>
       {//Segunda func anon
-        target.currentHP -= this.sheet.GetSkillDamage(target, skillNumber);
+        this.sheet.ApplySkillDamage(target, skillNumber);
         if (OnHPChanged != null) OnHPChanged(this, EventArgs.Empty); // Trocar depois
-        
-        PlayHealAnimation(targetPosition,() =>
+
+        PlayHealAnimation(targetPosition, () =>
       {
         SlideToPosition(startingPosition - attackDir,//Depois penso em uma forma de não depender do Attack Dir
           () =>
@@ -328,14 +344,56 @@ public void SkillHeal(CharacterBattle target, int skillNumber)
             state = State.Idle;
             onSkillComplete();
           }
-            );});
+            );
+      });
 
 
       });
     }
     );
   }
-  
+
+  public void SkillCasting(CharacterBattle target, int skillNumber)
+  { //por default a animação 0 é iddle, 1 é attack. 
+    //animator.runtimeAnimatorController.animationClips.Lenght; retorna número de animações não vazias
+    this.HideHighlight();
+    Vector3 targetPosition = target.GetPosition();
+
+    Vector3 startingPosition = GetPosition();
+
+    Vector3 attackDir = (target.GetPosition() - GetPosition()).normalized;
+
+    //FIXME: Não sei por que sem dar o Slide SEM ANDAR NADA, o normalized time não zera
+    //Imagino que seja porque sem as trocas de contexto que o Slide to Position tras
+    //O Unity não tem tempo de atualizar a informação do normalized time a tempo
+    //FIXME: Talvez seja porque o Heal Time não tem loop diferente dos outros. Checar se der tempo,
+    //mas como assim está funcionando não devo mexer
+    SlideToPosition(GetPosition(), () =>
+    {//Primeira func anon
+      state = State.Busy;
+
+      PlayAnimation(skillNumber, () =>
+      {//Segunda func anon
+        this.sheet.ApplySkillDamage(target, skillNumber);
+        if (OnHPChanged != null) OnHPChanged(this, EventArgs.Empty); // Trocar depois
+
+        PlayCastingAnimation(targetPosition, () =>
+      {
+        SlideToPosition(startingPosition - attackDir,//Depois penso em uma forma de não depender do Attack Dir
+          () =>
+          {//Terceira func anon
+            state = State.Idle;
+            onSkillComplete();
+          }
+            );
+      });
+
+
+      });
+    }
+    );
+  }
+
 
 
   private void SlideToPosition(Vector3 slideTargetPosition, Action onSlideComplete)
@@ -365,18 +423,32 @@ public void SkillHeal(CharacterBattle target, int skillNumber)
   private void PlayHealAnimation(Vector3 HealTargetPosition, Action onAnimationComplete)
   {
     this.onAnimationComplete = onAnimationComplete;
-    healObject.transform.position = HealTargetPosition;
-    healObject.SetActive(true);
+    castObject.transform.position = HealTargetPosition;
+    castObject.SetActive(true);
     //Debug.Log("Indice" + animationIndex);
     //animator.SetInteger("SkillNumber", animationIndex);
     //animator.Play(animator.GetCurrentAnimatorStateInfo(0).fullPathHash, 0, 0f);
-    healAnimator.Play("HealAnimation");
-    
+    castAnimator.Play("HealAnimation");
+
     //animator.Play("SkeletonAttackAnimation");
 
-    state = State.AnimatingHeal;
+    state = State.AnimatingCasting;
   }
 
+  private void PlayCastingAnimation(Vector3 HealTargetPosition, Action onAnimationComplete)
+  {
+    this.onAnimationComplete = onAnimationComplete;
+    castObject.transform.position = HealTargetPosition;
+    castObject.SetActive(true);
+    //Debug.Log("Indice" + animationIndex);
+    //animator.SetInteger("SkillNumber", animationIndex);
+    //animator.Play(animator.GetCurrentAnimatorStateInfo(0).fullPathHash, 0, 0f);
+    castAnimator.Play("CastAnimation");
+
+    //animator.Play("SkeletonAttackAnimation");
+
+    state = State.AnimatingCasting;
+  }
 
 
   public bool isDead()
@@ -401,15 +473,20 @@ public void SkillHeal(CharacterBattle target, int skillNumber)
   {
     highlightGameObject.SetActive(true);
   }
-  
-   public void HideTarget()
+
+  public void HideTarget()
   {
     targetGameObject.SetActive(false);
   }
-    
-    public void ShowTarget()
+
+  public void ShowTarget()
   {
     targetGameObject.SetActive(true);
+  }
+
+  public void ManaChanged()
+  {
+    if (OnManaChanged != null) OnManaChanged(this, EventArgs.Empty); // Trocar depois
   }
   /*
       private void SlideToPosition(Vector3 slideTargetPosition)

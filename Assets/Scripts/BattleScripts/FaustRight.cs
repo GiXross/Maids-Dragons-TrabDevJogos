@@ -6,6 +6,7 @@ public class FaustRight : CharacterSheet
 
     public override void InitStats()
     {
+        this.name = "Faust";
         this.level = 1;
         this.hp = 140;
         this.mana = 60;
@@ -15,19 +16,31 @@ public class FaustRight : CharacterSheet
         this.end = 6;
         this.luck = 4;
         this.pers = 0;
-        this.skillList = new string[] {"Time Heal"};
+        this.skillObject = new SkillObject
+        {
+            skillList = new string[] { "Time Heal" },
+            skillTypes = new string[] { "Heal" }
+        };
     }
     public override int GetNumSkills()
         {
-        return skillList.Length;
+        return skillObject.skillList.Length;
     }
     public override string GetSkillName(int index)
     {
-        return skillList[index];
+        return skillObject.skillList[index];
     }
-
-    public override int GetSkillDamage(CharacterBattle target,int index) {
-        return 0;
+    public override string GetSkillType(int index)
+    {
+        return skillObject.skillTypes[index];
+    }
+    public override int GetManaCost(int index)
+    {
+        return skillObject.manaCosts[index];
+    }
+    
+    public override void ApplySkillDamage(CharacterBattle target, int index)
+    {
 
     }
 

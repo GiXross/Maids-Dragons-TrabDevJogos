@@ -1,0 +1,656 @@
+fileFormatVersion: 2
+guid: 72069afbb8839c94fb9cf7fd59dacb9a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7048938304154620198
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_0
+  - first:
+      213: 2582010606324852964
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_1
+  - first:
+      213: 1619347891422058758
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_2
+  - first:
+      213: 440206968168193133
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_3
+  - first:
+      213: -9212612442825971618
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_4
+  - first:
+      213: -2755516762327721071
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_5
+  - first:
+      213: 7325835008713901093
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_6
+  - first:
+      213: 8722965249969934422
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_7
+  - first:
+      213: 1468663878139084718
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_8
+  - first:
+      213: -7147072251502664968
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_9
+  - first:
+      213: -2420202856704312030
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_10
+  - first:
+      213: -7876649598992151789
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_11
+  - first:
+      213: -8966818407051255269
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_12
+  - first:
+      213: 2377539326687554610
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_13
+  - first:
+      213: -8190809719829451559
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_14
+  - first:
+      213: 3698779422826044902
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_15
+  - first:
+      213: 1017879565436184914
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_16
+  - first:
+      213: -4844025359092623486
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_17
+  - first:
+      213: 5753979588844429884
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_18
+  - first:
+      213: -5322896018731205923
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_19
+  - first:
+      213: -5845889183905370328
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_20
+  - first:
+      213: -9210987349040492185
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_21
+  - first:
+      213: 4573508544083447712
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_22
+  - first:
+      213: 1030238258420637511
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_23
+  - first:
+      213: 7975351310700915158
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_24
+  - first:
+      213: -5881487537537640094
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_25
+  - first:
+      213: 4552098813335738474
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_26
+  - first:
+      213: 7241749552438948213
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_27
+  - first:
+      213: -6252636970307467792
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_28
+  - first:
+      213: 9153783811862700451
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_29
+  - first:
+      213: 1643860790849932014
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_30
+  - first:
+      213: -61702207656825223
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_31
+  - first:
+      213: -6215622727101491256
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_32
+  - first:
+      213: -2124725325970090309
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_33
+  - first:
+      213: -6630581441097920786
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_34
+  - first:
+      213: 4389136184742291272
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_35
+  - first:
+      213: 8778792935985777359
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_36
+  - first:
+      213: -5532950044270023227
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_37
+  - first:
+      213: 6199465604979549384
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_38
+  - first:
+      213: 7141711364088417549
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_39
+  - first:
+      213: -6631951419665846657
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_40
+  - first:
+      213: -5609714042606422241
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_41
+  - first:
+      213: -5217933256935590060
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_42
+  - first:
+      213: 7059044651286015015
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_43
+  - first:
+      213: 1927686654781789810
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_44
+  - first:
+      213: -8963963458440716345
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_45
+  - first:
+      213: -8847012429453618409
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_46
+  - first:
+      213: 8331920558056235568
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_47
+  - first:
+      213: 9089708280184862454
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_48
+  - first:
+      213: 3273572815378647727
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_49
+  - first:
+      213: 7436243386138570886
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_50
+  - first:
+      213: 9219543150548778638
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_51
+  - first:
+      213: -560041512064053432
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_52
+  - first:
+      213: 5394512458770036898
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_53
+  - first:
+      213: 8615388176334608676
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_54
+  - first:
+      213: 5802854397902163134
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_55
+  - first:
+      213: 2997978715395274741
+    second: Sprite-DCA03 - Thunder 16x16-Sheet_56
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96092b9eb0862084b8e679beec0879fa
+      internalID: -603639513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e62f34c74c929e4e86d85ff5f6da2cd
+      internalID: 696283152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34e12cafd92efc445b9005dec937f036
+      internalID: -1524976185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d7359c910b112a4d9d634348c3acf4e
+      internalID: 44587707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb902d8777077c540aa6509aad18d7ca
+      internalID: 1246851145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e5449c0b2d353642a1828b208b223a2
+      internalID: -1605667766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b3bbecd570606e4f90fb19ca38cf10a
+      internalID: 1716016508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e2c9e7a8eaa998409f07c1f1f60867e
+      internalID: 1689459433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19dd517ba526d1247abb48532ce7a5b2
+      internalID: -1933849842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af1799971b679414d964f022d9af3704
+      internalID: -345475217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaed7f3656b4d6e4f8ccec9d4ff7b080
+      internalID: 353521100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1650
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d18441f12277f374a957c94a71aae67a
+      internalID: -212565802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9971b375f1e68a240a5b6016b45402d7
+      internalID: 781360321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ab6515c64e55274d88a1a3e1481e4c5
+      internalID: -382665791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19654f8838f8f464aadcec45b1e77959
+      internalID: 1320579175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-DCA03 - Thunder 16x16-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 0
+        width: 150
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ea3b29c47bccff4e9d2488a20c840d2
+      internalID: 328689557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 441dbeda5decd1348a048fd00438ce83
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Sprite-DCA03 - Thunder 16x16-Sheet_0: -603639513
+      Sprite-DCA03 - Thunder 16x16-Sheet_1: 696283152
+      Sprite-DCA03 - Thunder 16x16-Sheet_10: 353521100
+      Sprite-DCA03 - Thunder 16x16-Sheet_11: -212565802
+      Sprite-DCA03 - Thunder 16x16-Sheet_12: 781360321
+      Sprite-DCA03 - Thunder 16x16-Sheet_13: -382665791
+      Sprite-DCA03 - Thunder 16x16-Sheet_14: 1320579175
+      Sprite-DCA03 - Thunder 16x16-Sheet_15: 328689557
+      Sprite-DCA03 - Thunder 16x16-Sheet_2: -1524976185
+      Sprite-DCA03 - Thunder 16x16-Sheet_3: 44587707
+      Sprite-DCA03 - Thunder 16x16-Sheet_4: 1246851145
+      Sprite-DCA03 - Thunder 16x16-Sheet_5: -1605667766
+      Sprite-DCA03 - Thunder 16x16-Sheet_6: 1716016508
+      Sprite-DCA03 - Thunder 16x16-Sheet_7: 1689459433
+      Sprite-DCA03 - Thunder 16x16-Sheet_8: -1933849842
+      Sprite-DCA03 - Thunder 16x16-Sheet_9: -345475217
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
