@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 71c8f8c25f34e5c4690fffb7461cee65
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3155751909146803914
+    second: FaustBattleAttacks_0
+  - first:
+      213: -3896940667726239724
+    second: FaustBattleAttacks_1
+  - first:
+      213: -8869255189968453534
+    second: FaustBattleAttacks_2
+  - first:
+      213: -9075766559467753056
+    second: FaustBattleAttacks_3
+  - first:
+      213: -8818170997177275265
+    second: FaustBattleAttacks_4
+  - first:
+      213: -1626734537912834829
+    second: FaustBattleAttacks_5
+  - first:
+      213: -8849956530153777889
+    second: FaustBattleAttacks_6
+  - first:
+      213: 4276509243549769575
+    second: FaustBattleAttacks_7
+  - first:
+      213: -8601817783017613461
+    second: FaustBattleAttacks_8
+  - first:
+      213: -5177951213531870123
+    second: FaustBattleAttacks_9
+  - first:
+      213: -563066539211266089
+    second: FaustBattleAttacks_10
+  - first:
+      213: -4241686112237280254
+    second: FaustBattleAttacks_11
+  - first:
+      213: 7224543838855560180
+    second: FaustBattleAttacks_12
+  - first:
+      213: 4237337018958954780
+    second: FaustBattleAttacks_13
+  - first:
+      213: -4131628907540233201
+    second: FaustBattleAttacks_14
+  - first:
+      213: 8058452506542150025
+    second: FaustBattleAttacks_15
+  - first:
+      213: -4392642872484941171
+    second: FaustBattleAttacks_16
+  - first:
+      213: -1679520141672145537
+    second: FaustBattleAttacks_17
+  - first:
+      213: -6148766404757329434
+    second: FaustBattleAttacks_18
+  - first:
+      213: 4763694291796297027
+    second: FaustBattleAttacks_19
+  - first:
+      213: -7432607771286447387
+    second: FaustBattleAttacks_20
+  - first:
+      213: -5403586676900689788
+    second: FaustBattleAttacks_21
+  - first:
+      213: -4267927550363244564
+    second: FaustBattleAttacks_22
+  - first:
+      213: -635114984996232463
+    second: FaustBattleAttacks_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1000
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FaustBattleAttacks_0
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 289
+        width: 21
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6314b08cb548434d0800000000000000
+      internalID: -3155751909146803914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_1
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 289
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 418676d0c194be9c0800000000000000
+      internalID: -3896940667726239724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_2
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 289
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26004a365631ae480800000000000000
+      internalID: -8869255189968453534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_3
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 289
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a13e8e46666c0280800000000000000
+      internalID: -9075766559467753056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_4
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 289
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7ca890e2309f9580800000000000000
+      internalID: -8818170997177275265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_5
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 290
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f4a8db7e8dac69e0800000000000000
+      internalID: -1626734537912834829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 203
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f151986cc63ae2580800000000000000
+      internalID: -8849956530153777889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_7
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 203
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76f5574cf76395b30800000000000000
+      internalID: 4276509243549769575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_8
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 200
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b67d89cfc4430a880800000000000000
+      internalID: -8601817783017613461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 198
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55c41252ec83428b0800000000000000
+      internalID: -5177951213531870123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_10
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 198
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d7676147f59f28f0800000000000000
+      internalID: -563066539211266089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_11
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 199
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 204a36f44f08225c0800000000000000
+      internalID: -4241686112237280254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_12
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 116
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fbf83b185cb24460800000000000000
+      internalID: 7224543838855560180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_13
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 116
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1149a0819b0eca30800000000000000
+      internalID: 4237337018958954780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_14
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 110
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f04445e166189a6c0800000000000000
+      internalID: -4131628907540233201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_15
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 116
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9811dc3fbdf55df60800000000000000
+      internalID: 8058452506542150025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_16
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 111
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d823268a4923a03c0800000000000000
+      internalID: -4392642872484941171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_17
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 110
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7d9482645521b8e0800000000000000
+      internalID: -1679520141672145537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_18
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 29
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e9659d48813baaa0800000000000000
+      internalID: -6148766404757329434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_19
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 29
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 345031128ba0c1240800000000000000
+      internalID: 4763694291796297027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_20
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 26
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ead9a59c921ad890800000000000000
+      internalID: -7432607771286447387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_21
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 23
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4880d4afb8a9205b0800000000000000
+      internalID: -5403586676900689788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_22
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 23
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce7ee71618645c4c0800000000000000
+      internalID: -4267927550363244564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaustBattleAttacks_23
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 25
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f2a5cf394e9f27f0800000000000000
+      internalID: -635114984996232463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 80654b94998a82b4195478ac08574775
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FaustBattleAttacks_0: -3155751909146803914
+      FaustBattleAttacks_1: -3896940667726239724
+      FaustBattleAttacks_10: -563066539211266089
+      FaustBattleAttacks_11: -4241686112237280254
+      FaustBattleAttacks_12: 7224543838855560180
+      FaustBattleAttacks_13: 4237337018958954780
+      FaustBattleAttacks_14: -4131628907540233201
+      FaustBattleAttacks_15: 8058452506542150025
+      FaustBattleAttacks_16: -4392642872484941171
+      FaustBattleAttacks_17: -1679520141672145537
+      FaustBattleAttacks_18: -6148766404757329434
+      FaustBattleAttacks_19: 4763694291796297027
+      FaustBattleAttacks_2: -8869255189968453534
+      FaustBattleAttacks_20: -7432607771286447387
+      FaustBattleAttacks_21: -5403586676900689788
+      FaustBattleAttacks_22: -4267927550363244564
+      FaustBattleAttacks_23: -635114984996232463
+      FaustBattleAttacks_3: -9075766559467753056
+      FaustBattleAttacks_4: -8818170997177275265
+      FaustBattleAttacks_5: -1626734537912834829
+      FaustBattleAttacks_6: -8849956530153777889
+      FaustBattleAttacks_7: 4276509243549769575
+      FaustBattleAttacks_8: -8601817783017613461
+      FaustBattleAttacks_9: -5177951213531870123
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
