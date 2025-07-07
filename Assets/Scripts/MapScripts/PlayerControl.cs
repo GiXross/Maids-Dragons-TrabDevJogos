@@ -58,7 +58,7 @@ public class PlayerControl : MonoBehaviour
 
         if (triggerFlag)
         {
-            this.interact();
+            this.Interact();
 
         }
 
@@ -151,7 +151,7 @@ public class PlayerControl : MonoBehaviour
 
     }
 
-    public void interact()
+    public void Interact()
     {
         if (Input.GetAxisRaw("Interact") != 0)
         {

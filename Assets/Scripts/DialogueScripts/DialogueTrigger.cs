@@ -8,14 +8,26 @@ public class DialogueTrigger : MonoBehaviour, TriggerInterface
 
     public Dialogue dialogue;
     public InputAction inputAction;
+
+    private bool isTriggered;
+
+
+    public void Awake()
+    {
+        isTriggered = false;
+    }
     public void Trigger()
     {
         //FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
 
         //DialogueManager manager = (DialogueManager)FindFirstObjectByType(typeof(DialogueManager));
         //manager.StartDialogue(dialogue);
-        FindFirstObjectByType<DialogueManager>().StartDialogue(dialogue, this);
-        DisableMovement();
+        if (!isTriggered)
+        {
+            isTriggered = true;
+            FindFirstObjectByType<DialogueManager>().StartDialogue(dialogue, this);
+            DisableMovement();
+        }
     }
 
 
@@ -23,10 +35,11 @@ public class DialogueTrigger : MonoBehaviour, TriggerInterface
     {
         this.transform.SendMessage("DialogueFinish", SendMessageOptions.DontRequireReceiver);
         EnableMovement();
+        isTriggered = false;
     }
 
     public void DisableMovement()
-    {
+    {   
         InputSystem.actions.FindAction("Move").Disable();
     }
 
