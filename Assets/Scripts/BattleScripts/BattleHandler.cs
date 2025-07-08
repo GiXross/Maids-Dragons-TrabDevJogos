@@ -612,7 +612,7 @@ public class BattleHandler : MonoBehaviour
     public string GetAllyActualHP(int allyNumber)
     {
         return (listOfAllies[allyNumber].sheet.name + " HP: " + listOfAllies[allyNumber].currentHP + "/" + listOfAllies[allyNumber].sheet.hp +
-        "\n Mana: " + listOfAllies[allyNumber].currentMana + "/" + listOfAllies[allyNumber].sheet.mana
+        "\nMana: " + listOfAllies[allyNumber].currentMana + "/" + listOfAllies[allyNumber].sheet.mana
         );
         //return (ally1Name + " AG: " + playerCharacterBattle.actionGauge + "/" + 100);
     }

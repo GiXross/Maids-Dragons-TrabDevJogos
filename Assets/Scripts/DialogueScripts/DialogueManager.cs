@@ -67,6 +67,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, DialogueTrigger trigger)
     {
+        if(!isDialogueOver){return;}
         StartCoroutine(YieldJustBecause());
         isDialogueOver = false;
         animator.SetBool("IsOpen", true);

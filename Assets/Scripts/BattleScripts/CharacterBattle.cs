@@ -111,7 +111,7 @@ public class CharacterBattle : MonoBehaviour
       case State.AnimatingCasting:
         NTime = castAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime; //Pega o tempo normalizado da animacao
                                                                             //Que resumidamente é um loop dos frames da animacao
-        if (NTime > 1.5f)
+        if (NTime > 1.0f)
         {
           castObject.SetActive(false);
           onAnimationComplete();
