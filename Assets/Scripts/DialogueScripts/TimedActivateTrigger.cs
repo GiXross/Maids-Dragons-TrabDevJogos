@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
 public class TimedActivateTrigger : MonoBehaviour
 {
-    public DialogueTrigger dTrigger;
+    private DialogueTrigger dTrigger;
     public float timeToTrigger = 2.0f;
     private IEnumerator Timer()
     {
@@ -19,7 +20,11 @@ public class TimedActivateTrigger : MonoBehaviour
     void Start()
     {
         dTrigger = GetComponent<DialogueTrigger>();
-        StartCoroutine(Timer());
+        if (NewGame.lastScene != SceneManager.GetActiveScene().name || NewGame.dBattleTrigger == true)
+        {
+            StartCoroutine(Timer());
+            NewGame.dBattleTrigger = false;
+        }
     }
 
 }

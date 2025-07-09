@@ -8,7 +8,7 @@ public class SkeletonBoss : CharacterSheet
     {   
         this.name = "Skeleton Boss";
         this.level = 10;
-        this.hp = 550;
+        this.hp = 400;
         this.mana = 200;
         this.str = 10;
         this.intel = 5;

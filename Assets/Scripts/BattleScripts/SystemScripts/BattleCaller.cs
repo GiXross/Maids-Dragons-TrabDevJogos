@@ -55,7 +55,7 @@ public class BattleCaller : MonoBehaviour
 
 
         int val = random.Next(0, 20);
-        Debug.Log(val);
+        //Debug.Log(val);
         oldPosition = newPosition;
 
         if (!firstTrigger && val == 9)

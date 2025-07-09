@@ -15,6 +15,7 @@ public class DialogueBattleTrigger : MonoBehaviour
             NewGame.assignedBattleOST = audioCaller;
         }
         NewGame.lastScene = nextScene;
+        NewGame.dBattleTrigger = true;
         NewGame.lastSceneCoord = null;
         SceneManager.LoadScene("BattleSystem");
     }
