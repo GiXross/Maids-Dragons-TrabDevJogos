@@ -67,9 +67,14 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, DialogueTrigger trigger)
     {
-        if(!isDialogueOver){return;}
-        StartCoroutine(YieldJustBecause());
-        isDialogueOver = false;
+        //Debug.Log("Starting conversation with ");
+        if (isDialogueOver) { isDialogueOver = false; }
+        else { return; } // não está dando condição de corrida, mas isso daqui
+                      // é o mais seguro
+
+        StartCoroutine(YieldJustBecause());// ideia é que fique aqui só
+                                            //para não pular a primeira frase
+        
         animator.SetBool("IsOpen", true);
         //  Debug.Log("Starting conversation with " + dialogue.name);
         this.trigger = trigger;

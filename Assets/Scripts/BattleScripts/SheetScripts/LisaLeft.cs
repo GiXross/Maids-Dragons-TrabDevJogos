@@ -1,26 +1,26 @@
 using UnityEngine;
 using Random = System.Random;
 using System;
-public class FaustLeft : CharacterSheet
+public class LisaLeft : CharacterSheet
 {
 
     public override void InitStats()
-    {   
-        this.name = "Faust";
+    {
+        this.name = "Lisa";
         this.level = 1;
-        this.hp = 120;
-        this.mana = 60;
-        this.str = 5;
-        this.intel = 4;
-        this.agi = 3;
-        this.end = 6;
+        this.hp = 80;
+        this.mana = 100;
+        this.str = 1;
+        this.intel = 5;
+        this.agi = 5;
+        this.end = 3;
         this.luck = 4;
-        this.pers = 0;
+        this.pers = 1;
         this.skillObject = new SkillObject
         {
-            skillList = new string[] { "Time Heal", "Pummeling"  },
-            skillTypes = new string[] { "Heal", "Damage" },
-            manaCosts = new int[] {6, 20}
+            skillList = new string[] { "Charge Battery","Plasma Explosion"},
+            skillTypes = new string[] { "Heal","Casting" },
+            manaCosts = new int[] { 10,20 }
         };
     }
 
@@ -36,10 +36,12 @@ public class FaustLeft : CharacterSheet
     {
         return skillObject.skillTypes[index];
     }
+
     public override int GetManaCost(int index)
     {
         return skillObject.manaCosts[index];
     }
+
     public override void ApplySkillDamage(CharacterBattle target, int index)
     {
         Random random = new Random();
@@ -47,40 +49,46 @@ public class FaustLeft : CharacterSheet
         double auxAttackVal;
 
         if (index == 2)
-        { // Time Heal
+        { // Recharge Battery
 
             auxRandVal = random.Next(this.intel + 1); //Inclui minimo valor e exclui o maior
 
             auxAttackVal = this.intel / 5;
-            int damage = TimeHeal(auxRandVal, auxAttackVal);//(20 + (5 * (Math.Truncate(auxAttackVal))) + (auxRandVal));
-            target.currentHP += damage;
+            int damage = ChargeBattery(auxRandVal, auxAttackVal);//(20 + (5 * (Math.Truncate(auxAttackVal))) + (auxRandVal));
+            target.currentMana += damage;
             Debug.Log("Total Damage: " + damage);
             Debug.Log("Random Val: " + auxRandVal);
+
         }
+
+
         if (index == 3)
-        { //Pummeling
-           if (target.isVulnerable)
+        { // Plasma Explosion
+            if (target.isVulnerable)
             {
-                auxRandVal = this.str;
+                auxRandVal = this.intel;
             }
             else
             {
-                auxRandVal = random.Next(this.str + 1); //Inclui minimo valor e exclui o maior
+                auxRandVal = random.Next(this.intel + 1); //Inclui minimo valor e exclui o maior
             }
-
-            auxAttackVal = this.str / 5;
-            int damage = Pummeling(auxRandVal, auxAttackVal);//(20 + (5 * (Math.Truncate(auxAttackVal))) + (auxRandVal));
+            auxAttackVal = this.intel / 5;
+            int damage = PlasmaExplosion(auxRandVal, auxAttackVal);//(20 + (5 * (Math.Truncate(auxAttackVal))) + (auxRandVal));
             target.currentHP -= damage;
             Debug.Log("Total Damage: " + damage);
             Debug.Log("Random Val: " + auxRandVal);
         }
+
+
     }
-    private int TimeHeal(int randVal, double attackVal)
-    { 
-        return (int) (25 + 2*(10 * (Math.Truncate(attackVal))) + (randVal));
+    private int PlasmaExplosion(int randVal, double attackVal)
+    {
+        return (int)(35 + 2 * (20 * (Math.Truncate(attackVal))) + (randVal));
+    }
+     
+    private int ChargeBattery(int randVal, double attackVal)
+    {
+        return (int)(20 + ((Math.Truncate(attackVal))) + (randVal));
     } 
-    private int Pummeling(int randVal, double attackVal)
-    { 
-        return (int) (10 + 4*(10 * (Math.Truncate(attackVal))) + 2*(randVal));
-    } 
+
 }

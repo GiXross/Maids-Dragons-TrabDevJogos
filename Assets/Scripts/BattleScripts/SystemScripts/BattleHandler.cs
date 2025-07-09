@@ -58,9 +58,16 @@ public class BattleHandler : MonoBehaviour
         Busy,
         ChargingGauges,
     }
-
-    void Start()
+    public void StartBattle(Transform pfCharacterBattleAlly,Transform pfCharacterBattleAlly2,Transform pfCharacterBattleEnemy, string ally1Name, string ally2Name,string enemy1Name, bool isBoss)
     {
+        this.pfCharacterBattleAlly = pfCharacterBattleAlly;
+        this.pfCharacterBattleAlly2 = pfCharacterBattleAlly2;
+        this.pfCharacterBattleEnemy = pfCharacterBattleEnemy;
+        this.ally1Name = ally1Name;
+        this.ally2Name = ally2Name;
+        this.enemy1Name = enemy1Name;
+        this.isBoss = isBoss;
+
         battleDManager.ClearSkills();
         StartBattleLogic();
         targetIndex = numAllies;
@@ -181,7 +188,7 @@ public class BattleHandler : MonoBehaviour
         if (activeCharacterBattle.sheet.GetNumSkills() >= val)
         { // indice da skill é val-1
             int castCost = activeCharacterBattle.sheet.GetManaCost(val - 1);
-            if (activeCharacterBattle.currentMana - castCost > 0)
+            if (activeCharacterBattle.currentMana - castCost >= 0)
             { //Se a mana que sobra depois da skill for menor do que 0, não é castável
                 listOfFighters[targetIndex].HideTarget();
                 state = State.Busy;
@@ -234,24 +241,31 @@ public class BattleHandler : MonoBehaviour
         if (!isBoss)
         {
             numEnemies = random.Next(1, 4);
-        }
-
-        listOfEnemies = new CharacterBattle[numEnemies];
-        /*
-        listOfEnemies[0] = enemyCharacterBattle;
-        listOfEnemies[1] = enemyCharacterBattle2;
-        listOfEnemies[2] = enemyCharacterBattle3;
-        */
-
-        for (int i = 0; i < numEnemies; i++)
-        {
-            //TODO: Daria para expandir aqui para mais inimigos com mais prefabs de inimigos e fazendo uma lista igual
-            listOfEnemies[i] = SpawnCharacter(false, pfCharacterBattleEnemy, i * 2, enemy1Name);
-            /*        enemyCharacterBattle = SpawnCharacter(false, 0);
-                    enemyCharacterBattle2 = SpawnCharacter(false, 2);
-                    enemyCharacterBattle3 = SpawnCharacter(false, 4);
+            listOfEnemies = new CharacterBattle[numEnemies];
+            /*
+            listOfEnemies[0] = enemyCharacterBattle;
+            listOfEnemies[1] = enemyCharacterBattle2;
+            listOfEnemies[2] = enemyCharacterBattle3;
             */
+
+            for (int i = 0; i < numEnemies; i++)
+            {
+                //TODO: Daria para expandir aqui para mais inimigos com mais prefabs de inimigos e fazendo uma lista igual
+                listOfEnemies[i] = SpawnCharacter(false, pfCharacterBattleEnemy, i * 2, enemy1Name);
+                /*        enemyCharacterBattle = SpawnCharacter(false, 0);
+                        enemyCharacterBattle2 = SpawnCharacter(false, 2);
+                        enemyCharacterBattle3 = SpawnCharacter(false, 4);
+                */
+            }
         }
+        else
+        {//FIXME: Para spawnar o boss no meio. Alterar aqui se quiser expandir o jogo
+            listOfEnemies = new CharacterBattle[numEnemies];
+            listOfEnemies[0] = SpawnCharacter(false, pfCharacterBattleEnemy, 2, enemy1Name);            
+        }
+
+        
+
         numberOfFighters = numAllies + numEnemies;
         listOfFighters = new CharacterBattle[numberOfFighters];
         //TODO: usar depois para criar de forma dinâmica
@@ -443,19 +457,25 @@ public class BattleHandler : MonoBehaviour
         UpdateGauge();
 
     }
+
+    private void EndBattleLogic()
+    {
+        NewGame.assignedBattleOST = null;
+        if (this.isWon)
+        {
+            SceneManager.LoadScene(NewGame.lastScene);
+            //FindFirstObjectByType<PlayerControl>().setCoordinates(NewGame.lastSceneCoord);
+        }
+        else
+        {
+            SceneManager.LoadScene(NewGame.loseScene);
+        }
+    }
     private void ChooseNextActiveCharacter()
     {
         if (TestBattleOver())
         {
-            if (this.isWon)
-            {
-                SceneManager.LoadScene(NewGame.lastScene);
-                //FindFirstObjectByType<PlayerControl>().setCoordinates(NewGame.lastSceneCoord);
-            }
-            else
-            {
-                SceneManager.LoadScene("Menu");
-            }
+            EndBattleLogic();
             return;
         }
         activeCharacterBattle.actionGauge = 0;

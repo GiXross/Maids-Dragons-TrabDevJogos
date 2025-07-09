@@ -5,17 +5,26 @@ using UnityEngine.InputSystem;
 
 public class DialogueTrigger : MonoBehaviour, TriggerInterface
 {
-
+    public float yieldTime = 0.5f;
     public Dialogue dialogue;
     public InputAction inputAction;
 
     private bool isTriggered;
-
+    
 
     public void Awake()
     {
         isTriggered = false;
     }
+
+        private IEnumerator YieldEnableTrigger()
+    {
+        yield return new WaitForSeconds(yieldTime);
+         isTriggered = false;
+        yield break;
+    }
+
+
     public void Trigger()
     {
         //FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
@@ -35,7 +44,7 @@ public class DialogueTrigger : MonoBehaviour, TriggerInterface
     {
         this.transform.SendMessage("DialogueFinish", SendMessageOptions.DontRequireReceiver);
         EnableMovement();
-        isTriggered = false;
+        StartCoroutine(YieldEnableTrigger());
     }
 
     public void DisableMovement()

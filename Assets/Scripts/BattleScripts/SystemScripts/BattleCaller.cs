@@ -6,9 +6,11 @@ using System;
 public class BattleCaller : MonoBehaviour
 {
     public Random random;
-
+#nullable enable
+    public Transform? audioCaller = null;
     private Vector2 newPosition;
     private Vector2 oldPosition;
+#nullable disable
     private GameObject interactedObject;
     private bool isTriggered;
     private bool firstTrigger;
@@ -23,17 +25,30 @@ public class BattleCaller : MonoBehaviour
     {
         if (isTriggered)
         {
-            treatInteraction();
+            TreatInteraction();
         }
 
 
     }
 
-    public void treatInteraction()
+    public void BattleCall()
+    {
+        if (audioCaller != null)
+        {
+            NewGame.assignedBattleOST = audioCaller;
+        }
+
+        NewGame.lastScene = SceneManager.GetActiveScene().name;
+        NewGame.lastSceneCoord = oldPosition;
+        SceneManager.LoadScene("BattleSystem");
+    }
+
+
+    public void TreatInteraction()
     {
         newPosition = interactedObject.transform.position;
 
-        if (( Math.Abs(newPosition.x - oldPosition.x) < 0.2) && ((Math.Abs(newPosition.y - oldPosition.y) < 0.2))) //Meio feio pensar em como fazer melhor
+        if ((Math.Abs(newPosition.x - oldPosition.x) < 0.2) && ((Math.Abs(newPosition.y - oldPosition.y) < 0.2))) //Meio feio pensar em como fazer melhor
         {
             return;
         }
@@ -45,9 +60,7 @@ public class BattleCaller : MonoBehaviour
 
         if (!firstTrigger && val == 9)
         {
-            NewGame.lastScene = SceneManager.GetActiveScene().name;
-            NewGame.lastSceneCoord = oldPosition;
-            SceneManager.LoadScene("BattleSystem");
+            BattleCall();
 
         }
         firstTrigger = false;
@@ -60,7 +73,7 @@ public class BattleCaller : MonoBehaviour
         }
 
         interactedObject = collision.gameObject;
-        
+
         isTriggered = true;
     }
     public void OnTriggerExit2D(Collider2D collision)

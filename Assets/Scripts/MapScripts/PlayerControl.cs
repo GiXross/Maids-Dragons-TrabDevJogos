@@ -11,6 +11,10 @@ public class PlayerControl : MonoBehaviour
     public bool triggerFlag;
     public bool isTriggeredFlag;
     public bool isPlayer = true;
+    public int facingDirectionX =0;
+    public int facingDirectionY=0;
+    
+
 
     private GameObject interactedObject;
     private Collider2D triggerCollider;
@@ -41,6 +45,9 @@ public class PlayerControl : MonoBehaviour
         moveAction.Enable();
         moveAction.performed += OnMove; //definindo quando o handler age
         moveAction.canceled += OnMove;
+
+        animator.SetFloat("LastInputX", facingDirectionX);
+        animator.SetFloat("LastInputY", facingDirectionY);
 
     }
 
@@ -184,7 +191,7 @@ public class PlayerControl : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         this.triggerFlag = true;
-        Debug.Log("I'm here!");
+        //Debug.Log("I'm here!");
         this.interactedObject = collision.gameObject;
     }
     public void OnTriggerExit2D(Collider2D collision)
